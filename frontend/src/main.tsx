@@ -11,13 +11,13 @@ import {
 import App from "./App.tsx";
 import "./index.css";
 import { HomeScreen } from "./screens/HomeScreen";
-import { InformationScreen } from "./screens/InformationScreen.tsx";
+import { InformationGetScreen } from "./screens/InformationGetScreen.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<HomeScreen />} />
-      <Route path="information" element={<InformationScreen />} />
+      <Route path="information-get" element={<InformationGetScreen />} />
       {/* Registered users */}
       {/* <Route path="" element={<PrivateRoute />}>
         <Route path="/shipping" element={<ShippingScreen />} />

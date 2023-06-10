@@ -6,7 +6,7 @@ interface User {
   name: string;
 }
 
-export const InformationScreen: React.FC = () => {
+export const InformationGetScreen: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
