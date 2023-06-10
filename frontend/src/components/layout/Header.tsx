@@ -4,7 +4,6 @@ import { FaUser, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useAuthStore } from "../../state/store";
 
 export const Header: React.FC = () => {
-  // const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [adminIsOpen, setAdminIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -42,23 +41,24 @@ export const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="bg-blue-500 py-3 text-white">
+    <header className="bg-custom-blue-dark py-3 text-custom-blue-lighter">
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link to="/" className="flex items-center space-x-2">
-          {/* <img src={logo} alt='Shop' className='w-10 h-10' /> */}
-          <span className="text-xl font-semibold">Shop</span>
+          <span className="text-xl font-semibold text-custom-blue-lightest">
+            Shop
+          </span>
         </Link>
         <div className="flex items-center space-x-8">
           <Link
             to="/"
-            className="text-white-700 block px-4 py-2 text-sm hover:bg-blue-800"
+            className="block px-4 py-2 text-custom-blue-lightest hover:bg-custom-blue-lighter hover:text-custom-blue-extra-darkest"
             role="menuitem"
           >
             Home
           </Link>
           <Link
             to="/information"
-            className="text-white-700 block px-4 py-2 text-sm hover:bg-blue-800"
+            className="block px-4 py-2 text-custom-blue-lightest hover:bg-custom-blue-lighter hover:text-custom-blue-extra-darkest"
             role="menuitem"
           >
             Information
@@ -69,20 +69,25 @@ export const Header: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsOpen(!isOpen)}
-                  className="flex items-center space-x-2"
+                  className="flex items-center space-x-2 text-custom-blue-lighter"
                 >
-                  <FaUser className="h-5 w-5" />
-                  <span data-testid="user-info-name">{userInfo.name}</span>
+                  <FaUser className="h-5 w-5 text-custom-blue-lightest" />
+                  <span
+                    data-testid="user-info-name"
+                    className="text-custom-blue-lightest"
+                  >
+                    {userInfo.name}
+                  </span>
                   {isOpen ? (
-                    <FaChevronUp className="h-5 w-5" />
+                    <FaChevronUp className="h-5 w-5 text-custom-blue-lightest" />
                   ) : (
-                    <FaChevronDown className="h-5 w-5" />
+                    <FaChevronDown className="h-5 w-5 text-custom-blue-lightest" />
                   )}
                 </button>
               </div>
 
               {isOpen && (
-                <div className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-custom-blue-darkest shadow-lg ring-1 ring-custom-blue-darker">
                   <div
                     className="py-1"
                     role="menu"
@@ -91,14 +96,13 @@ export const Header: React.FC = () => {
                   >
                     <Link
                       to="/profile"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm text-custom-blue-lighter hover:bg-custom-blue-darkest"
                       role="menuitem"
                     >
                       Profile
                     </Link>
                     <button
-                      // onClick={logoutHandler}
-                      className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                      className="block w-full px-4 py-2 text-left text-sm text-custom-blue-lighter hover:bg-custom-blue-darkest"
                       role="menuitem"
                     >
                       Logout
@@ -108,12 +112,14 @@ export const Header: React.FC = () => {
               )}
             </div>
           ) : (
-            <Link to="/login" className="flex items-center space-x-2">
-              <FaUser className="h-5 w-5" />
-              <span>Sign In</span>
+            <Link
+              to="/login"
+              className="flex items-center space-x-2 text-custom-blue-lighter"
+            >
+              <FaUser className="h-5 w-5 text-custom-blue-lightest" />
+              <span className="text-custom-blue-lightest">Sign In</span>
             </Link>
           )}
-          {/* Admin Links */}
           {userInfo && userInfo.isAdmin && (
             <div
               className="relative inline-block text-left"
@@ -122,18 +128,19 @@ export const Header: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setAdminIsOpen(!adminIsOpen)}
-                className="text-white-700 flex items-center space-x-2 px-4 py-2 hover:bg-blue-800"
-                // className="text-white-700 block px-4 py-2 text-sm hover:bg-gray-800"
+                className="flex items-center space-x-2 px-4 py-2 text-custom-blue-light hover:bg-custom-blue-lighter"
               >
-                <span>Admin Function</span>
+                <span className="text-custom-blue-lightest hover:text-custom-blue-extra-darkest">
+                  Admin Function
+                </span>
                 {adminIsOpen ? (
-                  <FaChevronUp className="h-5 w-5" />
+                  <FaChevronUp className="h-5 w-5 text-custom-blue-lightest" />
                 ) : (
-                  <FaChevronDown className="h-5 w-5" />
+                  <FaChevronDown className="h-5 w-5 text-custom-blue-lightest" />
                 )}
               </button>
               {adminIsOpen && (
-                <div className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-custom-blue-darkest shadow-lg ring-1 ring-custom-blue-darker">
                   <div
                     className="py-1"
                     role="menu"
@@ -142,21 +149,21 @@ export const Header: React.FC = () => {
                   >
                     <Link
                       to="/admin/product-list"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm text-custom-blue-lighter hover:bg-custom-blue-darkest"
                       role="menuitem"
                     >
                       Products
                     </Link>
                     <Link
                       to="/admin/order-list"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm text-custom-blue-lighter hover:bg-custom-blue-darkest"
                       role="menuitem"
                     >
                       Orders
                     </Link>
                     <Link
                       to="/admin/user-list"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm text-custom-blue-lighter hover:bg-custom-blue-darkest"
                       role="menuitem"
                     >
                       Users

@@ -1,5 +1,5 @@
 import React from "react";
 
-export const HomeScreen = () => {
+export const HomeScreen: React.FC = () => {
   return <div>HomeScreen</div>;
 };
