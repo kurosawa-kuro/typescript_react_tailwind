@@ -10,7 +10,7 @@ const App: React.FC = () => {
     <div className="">
       <ToastContainer />
       <Header />
-      <div className="mx-auto w-80">
+      <div className="container mx-auto">
         <Outlet />
       </div>
     </div>

@@ -44,9 +44,9 @@ export const InformationScreen: React.FC = () => {
   }
 
   return (
-    <div>
-      <h1>{data?.title}</h1>
-      <p>{data?.body}</p>
+    <div className="mt-2 bg-custom-blue-lightest p-4 text-custom-blue-darkest">
+      <h1 className="text-custom-blue-dark">{data?.title}</h1>
+      <p className="mt-2 text-custom-blue">{data?.body}</p>
     </div>
   );
 };
