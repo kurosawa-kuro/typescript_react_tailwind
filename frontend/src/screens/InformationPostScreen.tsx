@@ -41,8 +41,11 @@ export const InformationPostScreen: React.FC = () => {
     <>
       <form onSubmit={handleSubmit} className="mt-4 space-y-4">
         <div>
-          <label className="block text-custom-blue-darkest">Title: </label>
+          <label htmlFor="title" className="block text-custom-blue-darkest">
+            Title:{" "}
+          </label>
           <input
+            id="title"
             type="text"
             name="title"
             value={post.title}
@@ -52,8 +55,11 @@ export const InformationPostScreen: React.FC = () => {
         </div>
 
         <div>
-          <label className="block text-custom-blue-darkest">Body: </label>
+          <label htmlFor="body" className="block text-custom-blue-darkest">
+            Body:{" "}
+          </label>
           <textarea
+            id="body"
             name="body"
             value={post.body}
             onChange={handleChange}
