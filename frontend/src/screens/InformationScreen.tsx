@@ -1,52 +1,37 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-interface Data {
+interface User {
   id: number;
-  title: string;
-  body: string;
+  name: string;
 }
 
 export const InformationScreen: React.FC = () => {
-  const [data, setData] = useState<Data | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get<Data>(
-          "https://jsonplaceholder.typicode.com/posts/1"
-        );
-        setData(response.data);
-        setError(null);
-      } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("An error occurred");
-        }
-      } finally {
-        setLoading(false);
-      }
+    const getUsers = async () => {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      const data: User[] = response.data;
+      setUsers(data);
     };
-
-    fetchData();
+    getUsers();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
   return (
-    <div className="mt-2 bg-custom-blue-lightest p-4 text-custom-blue-darkest">
-      <h1 className="text-custom-blue-dark">{data?.title}</h1>
-      <p className="mt-2 text-custom-blue">{data?.body}</p>
+    <div className="mt-4 bg-custom-blue-lightest p-6 text-custom-blue-extra-dark">
+      <h1 className="mb-4 text-xl font-bold text-custom-blue-darkest">
+        ユーザ一覧
+      </h1>
+      <ul className="divide-y divide-custom-blue-dark">
+        {users.map((user: User) => (
+          <li key={user.id} className="py-2">
+            {user.id}.{user.name}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
