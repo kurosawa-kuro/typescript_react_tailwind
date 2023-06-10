@@ -1,6 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaUser, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import {
+  FaUser,
+  FaChevronDown,
+  FaChevronUp,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
 import { useAuthStore } from "../../state/store";
 
 export const Header: React.FC = () => {
@@ -48,7 +54,13 @@ export const Header: React.FC = () => {
             Shop
           </span>
         </Link>
-        <div className="flex items-center space-x-8">
+        <div className="sm:hidden">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+        <div className={`space-x-8 ${isOpen ? "block" : "hidden"} sm:flex`}>
+          {/* The remaining part of your navigation items go here */}
           <Link
             to="/"
             className="block px-4 py-2 text-custom-blue-lightest hover:bg-custom-blue-lighter hover:text-custom-blue-extra-darkest"
@@ -70,18 +82,26 @@ export const Header: React.FC = () => {
           >
             InformationPost
           </Link>
+          <Link
+            to="/login"
+            className="block px-4 py-2 text-custom-blue-lightest hover:bg-custom-blue-lighter hover:text-custom-blue-extra-darkest"
+            role="menuitem"
+          >
+            Login
+          </Link>
+
           {userInfo ? (
             <div className="relative inline-block text-left" ref={dropdownRef}>
               <div>
                 <button
                   type="button"
                   onClick={() => setIsOpen(!isOpen)}
-                  className="flex items-center space-x-2 text-custom-blue-lighter"
+                  className="flex items-center space-x-2 px-4 py-2 text-custom-blue-light hover:bg-custom-blue-lighter hover:text-custom-blue-extra-darkest"
                 >
                   <FaUser className="h-5 w-5 text-custom-blue-lightest" />
                   <span
                     data-testid="user-info-name"
-                    className="text-custom-blue-lightest"
+                    className="text-custom-blue-lightest hover:text-custom-blue-extra-darkest"
                   >
                     {userInfo.name}
                   </span>
@@ -146,6 +166,7 @@ export const Header: React.FC = () => {
                   <FaChevronDown className="h-5 w-5 text-custom-blue-lightest" />
                 )}
               </button>
+
               {adminIsOpen && (
                 <div className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-custom-blue-darker shadow-lg ring-1 ring-custom-blue-darker">
                   <div
@@ -155,25 +176,25 @@ export const Header: React.FC = () => {
                     aria-labelledby="options-menu"
                   >
                     <Link
-                      to="/admin/product-list"
+                      to="/admin/users"
+                      className="block px-4 py-2 text-sm text-custom-blue-lighter hover:bg-custom-blue-darkest"
+                      role="menuitem"
+                    >
+                      Users
+                    </Link>
+                    <Link
+                      to="/admin/products"
                       className="block px-4 py-2 text-sm text-custom-blue-lighter hover:bg-custom-blue-darkest"
                       role="menuitem"
                     >
                       Products
                     </Link>
                     <Link
-                      to="/admin/order-list"
+                      to="/admin/orders"
                       className="block px-4 py-2 text-sm text-custom-blue-lighter hover:bg-custom-blue-darkest"
                       role="menuitem"
                     >
                       Orders
-                    </Link>
-                    <Link
-                      to="/admin/user-list"
-                      className="block px-4 py-2 text-sm text-custom-blue-lighter hover:bg-custom-blue-darkest"
-                      role="menuitem"
-                    >
-                      Users
                     </Link>
                   </div>
                 </div>

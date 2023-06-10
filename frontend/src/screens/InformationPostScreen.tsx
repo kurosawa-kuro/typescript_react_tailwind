@@ -39,53 +39,57 @@ export const InformationPostScreen: React.FC = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-        <div>
-          <label htmlFor="title" className="block text-custom-blue-darkest">
-            Title:{" "}
-          </label>
-          <input
-            id="title"
-            type="text"
-            name="title"
-            value={post.title}
-            onChange={handleChange}
-            className="mt-1 block w-full rounded-md border-2 border-custom-blue px-4 py-2"
-          />
-        </div>
+      <div className="mx-auto w-1/3">
+        <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+          <div>
+            <label htmlFor="title" className="block text-custom-blue-darkest">
+              Title:{" "}
+            </label>
+            <input
+              id="title"
+              type="text"
+              name="title"
+              value={post.title}
+              onChange={handleChange}
+              className="mt-1 block w-full rounded-md border-2 border-custom-blue px-4 py-2"
+            />
+          </div>
 
-        <div>
-          <label htmlFor="body" className="block text-custom-blue-darkest">
-            Body:{" "}
-          </label>
-          <textarea
-            id="body"
-            name="body"
-            value={post.body}
-            onChange={handleChange}
-            className="mt-1 block w-full rounded-md border-2 border-custom-blue px-4 py-2"
-          />
-        </div>
+          <div>
+            <label htmlFor="body" className="block text-custom-blue-darkest">
+              Body:{" "}
+            </label>
+            <textarea
+              id="body"
+              name="body"
+              value={post.body}
+              onChange={handleChange}
+              className="mt-1 block w-full rounded-md border-2 border-custom-blue px-4 py-2"
+            />
+          </div>
 
-        <button
-          type="submit"
-          className="rounded-md bg-custom-blue px-4 py-2 text-white"
-        >
-          Submit
-        </button>
-      </form>
-
-      <ul className="mt-4 space-y-4">
-        {createdPosts.map((post, index) => (
-          <li
-            key={index}
-            className="rounded-md border-2 border-custom-blue p-4"
+          <button
+            type="submit"
+            className="rounded-md bg-custom-blue px-4 py-2 text-white"
           >
-            <h2 className="text-2xl text-custom-blue-darkest">{post.title}</h2>
-            <p className="mt-2 text-custom-blue-dark">{post.body}</p>
-          </li>
-        ))}
-      </ul>
+            Submit
+          </button>
+        </form>
+
+        <ul className="mt-4 space-y-4">
+          {createdPosts.map((post, index) => (
+            <li
+              key={index}
+              className="rounded-md border-2 border-custom-blue p-4"
+            >
+              <h2 className="text-2xl text-custom-blue-darkest">
+                {post.title}
+              </h2>
+              <p className="mt-2 text-custom-blue-dark">{post.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
