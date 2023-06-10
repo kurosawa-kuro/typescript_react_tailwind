@@ -12,12 +12,14 @@ import App from "./App.tsx";
 import "./index.css";
 import { HomeScreen } from "./screens/HomeScreen";
 import { InformationGetScreen } from "./screens/InformationGetScreen.tsx";
+import { InformationPostScreen } from "./screens/InformationPostScreen.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<HomeScreen />} />
       <Route path="information-get" element={<InformationGetScreen />} />
+      <Route path="information-post" element={<InformationPostScreen />} />
       {/* Registered users */}
       {/* <Route path="" element={<PrivateRoute />}>
         <Route path="/shipping" element={<ShippingScreen />} />

@@ -63,6 +63,13 @@ export const Header: React.FC = () => {
           >
             InformationGet
           </Link>
+          <Link
+            to="/information-post"
+            className="block px-4 py-2 text-custom-blue-lightest hover:bg-custom-blue-lighter hover:text-custom-blue-extra-darkest"
+            role="menuitem"
+          >
+            InformationPost
+          </Link>
           {userInfo ? (
             <div className="relative inline-block text-left" ref={dropdownRef}>
               <div>
