@@ -1,6 +1,6 @@
 // LoginScreen.tsx
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 
 import FormContainer from "../../components/forms/FormContainer";
@@ -9,7 +9,7 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitHandler = async (e: any) => {
+  const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
   };
 

@@ -10,7 +10,9 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
-  const submitHandler = async (e: FormEvent) => {};
+  const submitHandler = async (e: FormEvent) => {
+    e.preventDefault();
+  };
 
   return (
     <FormContainer>
