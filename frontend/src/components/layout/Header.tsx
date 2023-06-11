@@ -90,6 +90,14 @@ export const Header: React.FC = () => {
             Login
           </Link>
 
+          <Link
+            to="/register"
+            className="block px-4 py-2 text-custom-blue-lightest hover:bg-custom-blue-lighter hover:text-custom-blue-extra-darkest"
+            role="menuitem"
+          >
+            Register
+          </Link>
+
           {userInfo ? (
             <div className="relative inline-block text-left" ref={dropdownRef}>
               <div>

@@ -14,6 +14,7 @@ import { HomeScreen } from "./screens/HomeScreen";
 import { InformationGetScreen } from "./screens/InformationGetScreen.tsx";
 import { InformationPostScreen } from "./screens/InformationPostScreen.tsx";
 import LoginScreen from "./screens/auth/LoginScreen.tsx";
+import RegisterScreen from "./screens/auth/RegisterScreen.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route path="information-get" element={<InformationGetScreen />} />
       <Route path="information-post" element={<InformationPostScreen />} />
       <Route path="login" element={<LoginScreen />} />
+      <Route path="register" element={<RegisterScreen />} />
       {/* <Route path="information-post" element={<InformationPostScreen />} /> */}
       {/* Registered users */}
       {/* <Route path="" element={<PrivateRoute />}>

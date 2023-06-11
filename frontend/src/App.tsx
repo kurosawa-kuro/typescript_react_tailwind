@@ -7,13 +7,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 const App: React.FC = () => {
   return (
-    <div className="">
+    <>
       <ToastContainer />
       <Header />
       <div className="container mx-auto">
         <Outlet />
       </div>
-    </div>
+    </>
   );
 };
 

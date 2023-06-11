@@ -3,11 +3,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'custom-blue': {  // ここではカラーパレット名として "custom-blue" を用いています。
+        'custom-blue': {
           'lightest': '#eff6ff',
           'lighter': '#dbeafe',
           'light': '#bedcff',
-          'DEFAULT': '#5fa6fb',  // 'DEFAULT' は、色名だけでアクセスした際のデフォルト値です。
+          'DEFAULT': '#5fa6fb',
           'dark': '#3984f8',
           'darker': '#2364ed',
           'darkest': '#1b4fda',
